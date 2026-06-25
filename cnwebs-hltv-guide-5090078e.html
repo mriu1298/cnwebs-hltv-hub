@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLTV 中文站 · 专业数据与赛事社区</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f2f5;
+            color: #1e293b;
+            line-height: 1.65;
+            padding: 2.5rem 1rem;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.2rem 2.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e9ecf0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: #0b1a2f;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 660px;
+            color: #3e4b5c;
+            margin-bottom: 1.8rem;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            color: #596573;
+            font-size: 0.98rem;
+            border-top: 1px solid #e6e9ee;
+            padding-top: 1.6rem;
+            margin-top: 0.4rem;
+        }
+        .hero-meta span { background: #f2f4f7; padding: 0.2rem 0.85rem; border-radius: 30px; }
+
+        /* 卡片网格 */
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .card:hover { box-shadow: 0 10px 24px rgba(0,0,0,0.04); transform: translateY(-2px); }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.45rem;
+            color: #14273e;
+        }
+        .card p { font-size: 0.98rem; color: #3d4b5e; }
+        .card .badge {
+            display: inline-block;
+            background: #eef1f6;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #2b404f;
+            margin-top: 0.6rem;
+        }
+
+        /* 说明区 + FAQ 混合 */
+        .info-faq {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2.2rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+        }
+        .info-faq h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f253c;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eaeef3;
+            padding: 1rem 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1c3149;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #445668;
+            margin-top: 0.15rem;
+        }
+        .faq-a a { color: #1f5090; text-decoration: none; border-bottom: 1px dotted #b7c3d4; }
+        .faq-a a:hover { color: #0b2f5c; border-bottom-style: solid; }
+
+        /* 底部 */
+        .footer {
+            text-align: center;
+            padding: 1.2rem 1rem 0.4rem;
+            font-size: 0.9rem;
+            color: #5d6b7c;
+            border-top: 1px solid #dce1e8;
+        }
+        .footer a { color: #2b4b78; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* 响应式 */
+        @media (max-width: 780px) {
+            .hero { padding: 2.2rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .info-faq { padding: 1.8rem 1.2rem; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero-meta { flex-direction: column; gap: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>HLTV 中文镜像 · 赛事数据与竞技脉络</h1>
+        <p>围绕反恐精英职业生态，提供排名、统计、赛事日历及深度分析。<br>面向玩家、分析师与战队，聚合全球一线信息。</p>
+        <div class="hero-meta">
+            <span>📊 实时排名</span>
+            <span>🏆 赛事追踪</span>
+            <span>🧠 选手数据</span>
+            <span>📅 赛程预告</span>
+        </div>
+    </div>
+
+    <!-- 优势区 三卡片 -->
+    <div class="grid-3">
+        <div class="card">
+            <h3>结构化统计</h3>
+            <p>涵盖队伍 rating、地图胜率、选手 KAST 等超过 30 项细分指标，支持多赛季筛选与对比。</p>
+            <span class="badge">透明度优先</span>
+        </div>
+        <div class="card">
+            <h3>赛事时间线</h3>
+            <p>从 Major 到地区联赛，覆盖 S 级至 A 级赛事，自动收录比赛结果及后续对阵。</p>
+            <span class="badge">日历同步</span>
+        </div>
+        <div class="card">
+            <h3>社区注释</h3>
+            <p>每条数据附带来源标注与版本说明，减少信息过载，保持可追溯性。</p>
+            <span class="badge">持续更新</span>
+        </div>
+    </div>
+
+    <!-- 说明区 + FAQ 摘要 (二合一) -->
+    <div class="info-faq">
+        <h2>平台定位与常见疑问</h2>
+        <p style="margin-bottom: 1.2rem; font-size: 0.98rem; color: #3e4e62;">
+            cnwebs-hltv.com 旨在将 HLTV 核心数据以中文界面呈现，降低阅读门槛，同时保留原始信息结构。
+            以下为使用者经常关注的问题摘要。
+        </p>
+
+        <div class="faq-item">
+            <div class="faq-q">数据更新频率？</div>
+            <div class="faq-a">排名与选手数据每 24 小时同步，大型赛事期间实时推送比分及关键事件。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">能否查看历史版本数据？</div>
+            <div class="faq-a">部分页面提供月度存档，可通过检索功能回溯过往排名与赛事记录。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">移动端适配程度？</div>
+            <div class="faq-a">采用响应式布局，核心数据表与排行榜在手机端可横向滑动查看，图表组件已做压缩。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否与官方 HLTV 有直接关联？</div>
+            <div class="faq-a">本平台为独立镜像站点，数据基于公开接口与授权内容整理。原始信息源可参考 <a href="https://cnwebs-hltv.com">hltv</a> 主站。</div>
+        </div>
+    </div>
+
+    <!-- 双卡片 使用场景提示 -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>📋 赛事前瞻</h3>
+            <p>教练组与分析师常利用平台的地图池数据与近期交手记录制定策略，社区玩家也可借此了解队伍状态。</p>
+        </div>
+        <div class="card">
+            <h3>📈 数据对比</h3>
+            <p>选手 rating 折线、首杀成功率、残局胜率等维度，便于横向评估选手在不同版本下的表现趋势。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer">
+        <p>基于公开数据构建 · 中文界面由社区维护</p>
+        <p style="margin-top: 0.3rem;">
+            核心数据源: <a href="https://cnwebs-hltv.com">hltv</a> · 反馈与建议可联系站点维护团队
+        </p>
+        <p style="margin-top: 0.8rem; font-size: 0.82rem; color: #7b8a9b;">&copy; 2025 · 信息仅供参考，不作商业用途</p>
+    </div>
+
+</div>
+</body>
+</html>
